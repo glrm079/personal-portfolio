@@ -11,7 +11,7 @@ Esse é o meu portfólio pessoal, bilíngue (português e inglês), construído 
 - Duas versões, `/pt` e `/en`. A raiz (`/`) redireciona automaticamente para português.
 - Página única, responsiva, com tema claro, escuro e a opção de seguir o tema do sistema.
 - Animações que respeitam `prefers-reduced-motion`, então quem prefere menos movimento na tela não é incomodado.
-- SEO cuidado por idioma: título, descrição, URL canônica, hreflang, Open Graph e cards de X/Twitter próprios para cada versão.
+- SEO cuidado por idioma: título, descrição, URL canônica, hreflang próprios para cada versão.
 - Imagens de Open Graph geradas dinamicamente, além de `sitemap.xml`, `robots.txt`, favicon e JSON-LD de Person/ProfilePage.
 - Google Tag Manager configurado.
 - Testes cobrindo conteúdo, animações, rotas, metadados de SEO, ícones, temas e o comportamento responsivo.
@@ -93,7 +93,7 @@ This is my personal, bilingual portfolio (Portuguese and English), built with Ne
 - Two versions, `/pt` and `/en`. The root (`/`) redirects to Portuguese by default.
 - A single, responsive page with light, dark, and system theme support.
 - Motion that respects `prefers-reduced-motion`, so it doesn't get in the way for people who'd rather not see it.
-- SEO handled per locale: title, description, canonical URL, hreflang, Open Graph, and X/Twitter cards, each tailored to the language.
+- SEO handled per locale: title, description, canonical URL, hreflang each tailored to the language.
 - Open Graph images generated on the fly, plus `sitemap.xml`, `robots.txt`, a favicon, and Person/ProfilePage JSON-LD.
 - Google Tag Manager wired up.
 - Tests covering content, animation settings, SEO routes and metadata, icons, themes, and responsive behavior.
