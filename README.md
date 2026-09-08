@@ -2,41 +2,40 @@
 
 ## Português Brasil
 
-Um portfólio bilíngue de Guilherme Oliveira, Desenvolvedor Full Stack. Apresenta experiência profissional, competências técnicas, informações de contato e uma seção de projetos em evolução, em português e inglês.
+Esse é o meu portfólio pessoal, bilíngue (português e inglês), construído com Next.js. Ele reúne minha experiência profissional, stack técnica, formas de contato e uma seção de projetos que vou atualizando aos poucos.
 
 **Site:** [exploreguilherme.space](https://www.exploreguilherme.space)
 
-### Destaques
+### O que tem aqui
 
-- Versões em português (`/pt`) e inglês (`/en`), com `/` redirecionando para português.
-- Portfólio responsivo e acessível em página única, com suporte a temas claro, escuro e do sistema.
-- Animações que respeitam a preferência `prefers-reduced-motion` do usuário.
-- Fundo interativo sutil, ajustado para telas menores.
-- Título, descrição, URL canônica, tags hreflang e cards Open Graph e X/Twitter específicos por idioma.
-- Imagens Open Graph geradas dinamicamente, `sitemap.xml`, `robots.txt`, favicon e JSON-LD de Person/ProfilePage.
-- Integração com Google Tag Manager.
-- Testes automatizados para conteúdo, configurações de animação, rotas e metadados de SEO, ícones, temas e configuração visual responsiva.
+- Duas versões, `/pt` e `/en`. A raiz (`/`) redireciona automaticamente para português.
+- Página única, responsiva, com tema claro, escuro e a opção de seguir o tema do sistema.
+- Animações que respeitam `prefers-reduced-motion`, então quem prefere menos movimento na tela não é incomodado.
+- SEO cuidado por idioma: título, descrição, URL canônica, hreflang, Open Graph e cards de X/Twitter próprios para cada versão.
+- Imagens de Open Graph geradas dinamicamente, além de `sitemap.xml`, `robots.txt`, favicon e JSON-LD de Person/ProfilePage.
+- Google Tag Manager configurado.
+- Testes cobrindo conteúdo, animações, rotas, metadados de SEO, ícones, temas e o comportamento responsivo.
 
-### Stack e ferramentas
+### Stack
 
-| Área | Ferramentas utilizadas |
+| Área | O que uso |
 | --- | --- |
-| Framework | [Next.js 16](https://nextjs.org/) com App Router e React Server Components |
-| Interface | [React 19](https://react.dev/), TypeScript, CSS e classes utilitárias do [Tailwind CSS 4](https://tailwindcss.com/) |
-| Animação | [Motion](https://motion.dev/) para animações de entrada, rolagem e interação |
+| Framework | [Next.js 16](https://nextjs.org/), com App Router e React Server Components |
+| Interface | [React 19](https://react.dev/), TypeScript, CSS e utilitários do [Tailwind CSS 4](https://tailwindcss.com/) |
+| Animação | [Motion](https://motion.dev/) para entrada, scroll e interações |
 | Ícones | [Tabler Icons for React](https://tabler.io/icons) |
-| Internacionalização | Conteúdo por idioma em `src/data/portfolio.ts`; as rotas são `/pt` e `/en` |
-| Temas | Provider React próprio com `localStorage` e `prefers-color-scheme` |
-| Fontes | `next/font` com Manrope e DM Mono do Google Fonts |
-| SEO | API de Metadata do Next.js, `next/og`, JSON-LD, sitemap, robots e alternates por idioma |
+| Internacionalização | Conteúdo separado por idioma em `src/data/portfolio.ts`, com rotas `/pt` e `/en` |
+| Temas | Provider próprio em React, usando `localStorage` e `prefers-color-scheme` |
+| Fontes | `next/font`, com Manrope e DM Mono do Google Fonts |
+| SEO | Metadata API do Next.js, `next/og`, JSON-LD, sitemap, robots e alternates por idioma |
 | Analytics | Google Tag Manager |
 | Testes | [Vitest](https://vitest.dev/) e [JSDOM](https://github.com/jsdom/jsdom) |
-| Linting | [ESLint 9](https://eslint.org/) com as regras Core Web Vitals do `eslint-config-next` |
-| Gerenciador de pacotes | npm e `package-lock.json` |
+| Linting | [ESLint 9](https://eslint.org/) com as regras de Core Web Vitals do `eslint-config-next` |
+| Gerenciador de pacotes | npm, com `package-lock.json` |
 
-### Como executar localmente
+### Rodando localmente
 
-**Requisitos:** Node.js 20.9 ou mais recente e npm.
+Requer Node.js 20.9 ou mais recente e npm.
 
 ```bash
 git clone https://github.com/glrm079/exploreguilherme.git
@@ -45,106 +44,80 @@ npm ci
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000). A página inicial redireciona para `/pt`; acesse `/en` para a versão em inglês.
-
-### Scripts disponíveis
-
-| Comando | Descrição |
-| --- | --- |
-| `npm run dev` | Inicia o servidor local de desenvolvimento do Next.js. |
-| `npm run build` | Cria uma build otimizada para produção. |
-| `npm run start` | Inicia o servidor de produção após a build. |
-| `npm run lint` | Executa o ESLint em todo o projeto. |
-| `npm test` | Executa a suíte de testes do Vitest uma vez. |
-| `npm run test:watch` | Executa o Vitest em modo watch. |
-
-Antes de abrir um pull request ou publicar, execute:
-
-```bash
-npm run lint
-npm test
-npm run build
-```
+O projeto sobe em [http://localhost:3000](http://localhost:3000). A home redireciona para `/pt`; a versão em inglês fica em `/en`.
 
 ### Estrutura do projeto
 
 ```text
 app/
-  [locale]/                 # Página por idioma e rota da imagem Open Graph
-  icon.svg                  # Favicon do site
-  layout.tsx                # Fontes globais, provider de tema e snippet do GTM
+  [locale]/                 # Página por idioma e a rota da imagem Open Graph
+  icon.svg                  # Favicon
+  layout.tsx                # Fontes globais, provider de tema e o snippet do GTM
   page.tsx                  # Redireciona / para /pt
   robots.ts                 # Gera /robots.txt
   sitemap.ts                # Gera /sitemap.xml
-components/portfolio/       # Seções do portfólio e componentes interativos reutilizáveis
+components/portfolio/       # Seções do portfólio e componentes interativos
 public/                     # Arquivos estáticos, incluindo a foto de perfil
 src/
-  data/portfolio.ts         # Textos do portfólio em português e inglês
+  data/portfolio.ts         # Todo o texto do portfólio, em pt e en
   lib/                      # Configurações de animação, idioma, metadados e visual
-tests/                      # Cobertura do Vitest para comportamento e rotas
+tests/                      # Testes do Vitest
 proxy.ts                    # Define o idioma do documento por rota
 ```
 
-### Conteúdo, design e internacionalização
+### Conteúdo, design e idiomas
 
-Todo o conteúdo do portfólio está em [`src/data/portfolio.ts`](src/data/portfolio.ts). Mantenha as entradas `pt` e `en` alinhadas ao alterar textos da navegação e seções, projetos, experiências, competências, contato ou labels de chamadas para ação.
+Todo o texto do portfólio mora em [`src/data/portfolio.ts`](src/data/portfolio.ts), com as versões `pt` e `en` mantidas lado a lado. A foto de perfil fica em `public/guilherme-oliveira-portrait.jpg`, referenciada também nos dados estruturados em `src/lib/portfolio-metadata.ts`. Os tokens visuais e estilos de tema ficam centralizados em `app/globals.css`, e as seções do portfólio são montadas em `components/portfolio/portfolio.tsx`.
 
-A foto principal está em `public/guilherme-oliveira-portrait.jpg`. Se ela for substituída, mantenha o mesmo caminho ou atualize o componente principal e `src/lib/portfolio-metadata.ts`, onde a imagem é usada nos dados estruturados.
-
-Os tokens visuais globais, regras responsivas e estilos de tema ficam em `app/globals.css`. As seções são compostas em `components/portfolio/portfolio.tsx`.
-
-| Rota | Idioma | Idioma do documento |
+| Rota | Idioma | `lang` do documento |
 | --- | --- | --- |
 | `/pt` | Português | `pt-BR` |
 | `/en` | Inglês | `en` |
 
-`proxy.ts` define o idioma do documento a partir do caminho da requisição e o repassa ao layout raiz. A rota por idioma aceita apenas esses dois valores e retorna 404 para os demais.
+O `proxy.ts` decide o idioma do documento com base no caminho da requisição e repassa isso pro layout raiz.
 
-### SEO, analytics e qualidade
+### SEO, analytics e acessibilidade
 
-A URL do site é configurada uma única vez em `src/lib/portfolio-metadata.ts`. Altere `siteUrl` nesse arquivo ao migrar para outro domínio. Para cada idioma, o site fornece links canônicos e alternates de idioma, metadados localizados para busca e redes sociais, uma imagem Open Graph gerada de 1200 × 630 em `/{locale}/opengraph-image`, metadados X/Twitter no formato summary-large-image, JSON-LD de Person/ProfilePage, `/sitemap.xml` e `/robots.txt`.
+A URL do site está definida em um único lugar, `src/lib/portfolio-metadata.ts`. Cada idioma tem seus próprios links canônicos e alternates, metadados de busca e redes sociais, uma imagem Open Graph de 1200 × 630 gerada em `/{locale}/opengraph-image`, cards X/Twitter no formato summary-large-image, JSON-LD de Person/ProfilePage, além de `sitemap.xml` e `robots.txt` próprios. O Google Tag Manager é carregado em `app/layout.tsx`.
 
-O Google Tag Manager é carregado em `app/layout.tsx`. Substitua o ID atual do container tanto no script quanto no iframe sem JavaScript antes de usar outro container de analytics.
-
-O projeto usa uma estrutura semântica de seções, texto alternativo descritivo nas imagens, controles navegáveis por teclado, estilos de foco visíveis e preferências de tema salvas no navegador. As animações são desativadas ou reduzidas para pessoas que solicitam redução de movimento, inclusive durante a hidratação inicial para evitar inconsistências visuais. A suíte de testes cobre conteúdo localizado, roteamento de idioma do documento, metadados e rotas de busca, animação e redução de movimento, estado de tema, configuração visual, split text e renderização de ícones.
+Tentei manter o projeto acessível: estrutura semântica nas seções, texto alternativo descritivo nas imagens, navegação por teclado, foco visível e preferência de tema salva no navegador. As animações são desativadas ou reduzidas para quem pede menos movimento, inclusive já na primeira renderização, pra evitar aquele "pulo" visual. Os testes cobrem conteúdo localizado, roteamento de idioma, metadados e rotas de busca, comportamento de animação e redução de movimento, estado de tema, configuração visual, split text e renderização dos ícones.
 
 ## English
 
-A bilingual portfolio for Guilherme Oliveira, a Full Stack Developer. It presents professional experience, technical skills, contact details, and a growing projects section in Portuguese and English.
+This is my personal, bilingual portfolio (Portuguese and English), built with Next.js. It covers my professional experience, tech stack, contact info, and a projects section I keep adding to over time.
 
 **Live site:** [exploreguilherme.space](https://www.exploreguilherme.space)
 
-### Highlights
+### What's in it
 
-- Portuguese (`/pt`) and English (`/en`) versions, with `/` redirecting to Portuguese.
-- Responsive and accessible single-page portfolio with light, dark, and system theme support.
-- Motion that respects the user's `prefers-reduced-motion` setting.
-- Subtle interactive background, tuned down on smaller screens.
-- Locale-specific title, description, canonical URL, hreflang tags, Open Graph, and X/Twitter cards.
-- Generated Open Graph images, `sitemap.xml`, `robots.txt`, favicon, and Person/ProfilePage JSON-LD.
-- Google Tag Manager integration.
-- Automated checks for content, animation settings, SEO routes and metadata, icons, themes, and responsive visual configuration.
+- Two versions, `/pt` and `/en`. The root (`/`) redirects to Portuguese by default.
+- A single, responsive page with light, dark, and system theme support.
+- Motion that respects `prefers-reduced-motion`, so it doesn't get in the way for people who'd rather not see it.
+- SEO handled per locale: title, description, canonical URL, hreflang, Open Graph, and X/Twitter cards, each tailored to the language.
+- Open Graph images generated on the fly, plus `sitemap.xml`, `robots.txt`, a favicon, and Person/ProfilePage JSON-LD.
+- Google Tag Manager wired up.
+- Tests covering content, animation settings, SEO routes and metadata, icons, themes, and responsive behavior.
 
-### Tech stack and tools
+### Tech stack
 
-| Area | Tools used |
+| Area | What I use |
 | --- | --- |
-| Framework | [Next.js 16](https://nextjs.org/) with the App Router and React Server Components |
-| UI | [React 19](https://react.dev/), TypeScript, CSS, and [Tailwind CSS 4](https://tailwindcss.com/) utility classes |
+| Framework | [Next.js 16](https://nextjs.org/), App Router and React Server Components |
+| UI | [React 19](https://react.dev/), TypeScript, CSS, and [Tailwind CSS 4](https://tailwindcss.com/) utilities |
 | Animation | [Motion](https://motion.dev/) for entrance, scroll, and interaction animations |
 | Icons | [Tabler Icons for React](https://tabler.io/icons) |
-| Internationalization | Locale-based content supplied from `src/data/portfolio.ts`; routes are `/pt` and `/en` |
-| Themes | Local React theme provider using `localStorage` and `prefers-color-scheme` |
-| Fonts | `next/font` with Manrope and DM Mono from Google Fonts |
+| i18n | Locale content lives in `src/data/portfolio.ts`; routes are `/pt` and `/en` |
+| Themes | A small React theme provider using `localStorage` and `prefers-color-scheme` |
+| Fonts | `next/font`, with Manrope and DM Mono from Google Fonts |
 | SEO | Next.js Metadata API, `next/og`, JSON-LD, sitemap, robots, and locale alternates |
 | Analytics | Google Tag Manager |
 | Testing | [Vitest](https://vitest.dev/) and [JSDOM](https://github.com/jsdom/jsdom) |
-| Linting | [ESLint 9](https://eslint.org/) with `eslint-config-next` Core Web Vitals rules |
-| Package manager | npm and `package-lock.json` |
+| Linting | [ESLint 9](https://eslint.org/) with `eslint-config-next`'s Core Web Vitals rules |
+| Package manager | npm, with `package-lock.json` |
 
 ### Getting started
 
-**Requirements:** Node.js 20.9 or newer, and npm.
+Requires Node.js 20.9 or newer, and npm.
 
 ```bash
 git clone https://github.com/glrm079/exploreguilherme.git
@@ -153,65 +126,40 @@ npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The default page redirects to `/pt`; use `/en` for English.
-
-### Available scripts
-
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Starts the local Next.js development server. |
-| `npm run build` | Creates an optimized production build. |
-| `npm run start` | Starts the production server after building. |
-| `npm run lint` | Runs ESLint across the project. |
-| `npm test` | Runs the Vitest test suite once. |
-| `npm run test:watch` | Runs Vitest in watch mode. |
-
-Before opening a pull request or deploying, run:
-
-```bash
-npm run lint
-npm test
-npm run build
-```
+Runs at [http://localhost:3000](http://localhost:3000). The homepage redirects to `/pt`; the English version is at `/en`.
 
 ### Project structure
 
 ```text
 app/
-  [locale]/                 # Locale page and Open Graph image route
-  icon.svg                  # Site favicon
-  layout.tsx                # Global fonts, theme provider, and GTM snippet
+  [locale]/                 # Locale page and the Open Graph image route
+  icon.svg                  # Favicon
+  layout.tsx                # Global fonts, theme provider, and the GTM snippet
   page.tsx                  # Redirects / to /pt
   robots.ts                 # Generates /robots.txt
   sitemap.ts                # Generates /sitemap.xml
-components/portfolio/       # Portfolio sections and reusable interactive UI
-public/                     # Static files, including the portrait image
+components/portfolio/       # Portfolio sections and interactive UI
+public/                     # Static files, including the portrait
 src/
-  data/portfolio.ts         # Portuguese and English portfolio copy
+  data/portfolio.ts         # All portfolio copy, in both pt and en
   lib/                      # Motion, language, metadata, and visual settings
-tests/                      # Vitest coverage for behavior and routes
-proxy.ts                    # Sets the document language per locale route
+tests/                      # Vitest coverage
+proxy.ts                    # Sets the document language per route
 ```
 
 ### Content, design, and localization
 
-All portfolio copy lives in [`src/data/portfolio.ts`](src/data/portfolio.ts). Keep the `pt` and `en` entries aligned when changing navigation and section copy, projects, experience, skills, contact details, or call-to-action labels.
+All the copy lives in [`src/data/portfolio.ts`](src/data/portfolio.ts), with the `pt` and `en` entries kept side by side. The portrait sits at `public/guilherme-oliveira-portrait.jpg`, also referenced in the structured data in `src/lib/portfolio-metadata.ts`. Visual tokens and theme styles are centralized in `app/globals.css`, and the portfolio sections come together in `components/portfolio/portfolio.tsx`.
 
-The hero portrait is stored at `public/guilherme-oliveira-portrait.jpg`. If it is replaced, retain the same path or update both the hero component and `src/lib/portfolio-metadata.ts`, where it is used in structured data.
-
-Global visual tokens, responsive rules, and theme styles are in `app/globals.css`. Portfolio sections are composed in `components/portfolio/portfolio.tsx`.
-
-| Route | Language | Document language |
+| Route | Language | Document `lang` |
 | --- | --- | --- |
 | `/pt` | Portuguese | `pt-BR` |
 | `/en` | English | `en` |
 
-`proxy.ts` derives the document language from the request path and passes it to the root layout. The locale route only accepts these two values and returns a 404 for others.
+`proxy.ts` figures out the document language from the request path and passes it down to the root layout.
 
-### SEO, analytics, and quality
+### SEO, analytics, and accessibility
 
-The site URL is configured once in `src/lib/portfolio-metadata.ts`. Change `siteUrl` there when moving to another domain. Each locale supplies canonical and alternate-language links, localized search and social metadata, a generated 1200 × 630 Open Graph image at `/{locale}/opengraph-image`, X/Twitter summary-large-image metadata, Person/ProfilePage JSON-LD, `/sitemap.xml`, and `/robots.txt`.
+The site URL lives in one place, `src/lib/portfolio-metadata.ts`. Each locale gets its own canonical and alternate links, localized search and social metadata, a generated 1200 × 630 Open Graph image at `/{locale}/opengraph-image`, X/Twitter summary-large-image cards, Person/ProfilePage JSON-LD, and its own `sitemap.xml` and `robots.txt`. Google Tag Manager loads in `app/layout.tsx`.
 
-Google Tag Manager is loaded in `app/layout.tsx`. Replace the current container ID in both the script and no-script iframe before using another analytics container.
-
-The project uses semantic section structure, descriptive image alternative text, keyboard-operable controls, visible focus styles, and theme choices saved in the browser. Motion is disabled or reduced for users who request reduced motion, including during initial hydration to avoid visual mismatch. The test suite covers localized content, document-language routing, metadata and search routes, animation and reduced-motion behavior, theme state, visual configuration, split text, and icon rendering.
+I tried to keep this accessible: semantic section structure, descriptive alt text on images, keyboard-operable controls, visible focus states, and theme choices saved in the browser. Motion is disabled or reduced for anyone who asks for less of it, including on first render, to avoid that visual "jump." The test suite covers localized content, document-language routing, metadata and search routes, animation and reduced-motion behavior, theme state, visual configuration, split text, and icon rendering.
