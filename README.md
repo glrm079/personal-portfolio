@@ -1,6 +1,6 @@
 # Guilherme Oliveira Portfolio
 
-## Português do Brasil
+## Português Brasil
 
 Um portfólio bilíngue de Guilherme Oliveira, Desenvolvedor Full Stack. Apresenta experiência profissional, competências técnicas, informações de contato e uma seção de projetos em evolução, em português e inglês.
 
