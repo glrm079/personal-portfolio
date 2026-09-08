@@ -17,14 +17,15 @@ export function SplitText({ text, reducedMotion, id }: SplitTextProps) {
     >
       {words.map((word, index) => (
         <motion.span
-          className="inline-block will-change-transform"
+          className={`inline-block will-change-transform ${
+            index < words.length - 1 ? "mr-[0.22em]" : ""
+          }`}
           key={`${word}-${index}`}
           aria-hidden="true"
           {...motionProps}
           transition={{ ...motionProps.transition, delay: index * 0.065 }}
         >
           {word}
-          {index < words.length - 1 ? " " : ""}
         </motion.span>
       ))}
     </h1>

@@ -1,15 +1,16 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 import type { PortfolioContent } from "@/data/portfolio";
 import { getBlurRevealMotion } from "@/lib/animation";
+import { useHydrationSafeReducedMotion } from "./motion-provider";
 import { SectionHeading } from "./section-heading";
 
 type AboutSectionProps = Pick<PortfolioContent, "about">;
 
 export function AboutSection({ about }: AboutSectionProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydrationSafeReducedMotion();
   return (
     <section
       className="grid grid-cols-[.75fr_1.25fr] gap-[7vw] border-t border-rule py-[clamp(6rem,14vw,13rem)] [scroll-margin-top:80px] max-md:grid-cols-1 max-md:gap-12 max-md:py-[6.5rem]"

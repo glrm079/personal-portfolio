@@ -21,6 +21,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/components/navigation.react-server.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$portfolio$2f$portfolio$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/portfolio/portfolio.tsx [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$portfolio$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/portfolio.ts [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$portfolio$2d$metadata$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/portfolio-metadata.ts [app-rsc] (ecmascript)");
+;
 ;
 ;
 ;
@@ -36,36 +38,37 @@ function generateStaticParams() {
 }
 async function generateMetadata({ params }) {
     const { locale } = await params;
-    const isEnglish = locale === "en";
-    const title = isEnglish ? "Fullstack developer" : "Desenvolvedor Fullstack";
-    const description = isEnglish ? "Selected work and digital experiences by Guilherme Oliveira." : "Projetos e experiências digitais de Guilherme Oliveira.";
-    return {
-        title,
-        description,
-        alternates: {
-            languages: {
-                "pt-BR": "/pt",
-                en: "/en"
-            }
-        },
-        openGraph: {
-            title: `Guilherme Oliveira — ${title}`,
-            description,
-            type: "website",
-            locale: isEnglish ? "en_US" : "pt_BR"
-        }
-    };
+    if (!locales.includes(locale)) (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["notFound"])();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$portfolio$2d$metadata$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getPortfolioMetadata"])(locale);
 }
 async function PortfolioPage({ params }) {
     const { locale } = await params;
     if (!locales.includes(locale)) (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["notFound"])();
     const typedLocale = locale;
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$portfolio$2f$portfolio$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Portfolio"], {
-        locale: typedLocale,
-        content: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$portfolio$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getPortfolioContent"])(typedLocale)
-    }, void 0, false, {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
+                type: "application/ld+json",
+                dangerouslySetInnerHTML: {
+                    __html: JSON.stringify((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$portfolio$2d$metadata$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getPortfolioPersonJsonLd"])())
+                }
+            }, void 0, false, {
+                fileName: "[project]/app/[locale]/page.tsx",
+                lineNumber: 38,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$portfolio$2f$portfolio$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Portfolio"], {
+                locale: typedLocale,
+                content: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$portfolio$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getPortfolioContent"])(typedLocale)
+            }, void 0, false, {
+                fileName: "[project]/app/[locale]/page.tsx",
+                lineNumber: 44,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/app/[locale]/page.tsx",
-        lineNumber: 48,
+        lineNumber: 37,
         columnNumber: 5
     }, this);
 }
@@ -756,13 +759,13 @@ const portfolio = {
                     period: "Apr 2026 — present",
                     role: "Full Stack Developer",
                     company: "Westpoint — Cookiepal · remote",
-                    description: "Platform support, end-to-end feature delivery and process automation. Working across frontend, backend and integrations to improve internal flows and product experience."
+                    description: "Support for a platform used across Europe, end-to-end feature development and process automation. Frontend work with React, Next.js, TypeScript and Mantine; serverless backend work with infrastructure as code and integrations to evolve internal workflows and product experience."
                 },
                 {
                     period: "Nov 2025 — Apr 2026",
                     role: "Full Stack Developer",
                     company: "Westpoint · England · remote",
-                    description: "Developed and maintained features for a platform used across Europe. Frontend with React, Vite, TypeScript and Mantine; serverless backend with NestJS, Prisma, PostgreSQL RDS, DynamoDB and Cognito. Quality coverage with Cypress, Vitest and Jest, collaborating with the team to meet deadlines."
+                    description: "Developed and maintained features for a platform used across Europe. Frontend with React, Vite, TypeScript and Mantine; serverless backend also using NestJS, Prisma, PostgreSQL RDS, DynamoDB and Cognito. Quality coverage with Cypress and Jest, collaborating with the team to deliver on time."
                 }
             ]
         },

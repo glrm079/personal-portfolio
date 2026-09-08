@@ -1,14 +1,20 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import {
+  IconArrowUpRight,
+  IconBrandGithub,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 
 import type { PortfolioContent } from "@/data/portfolio";
 import { getBlurRevealMotion, subtleTap } from "@/lib/animation";
+import { useHydrationSafeReducedMotion } from "./motion-provider";
 
 type ContactSectionProps = Pick<PortfolioContent, "contact">;
 
 export function ContactSection({ contact }: ContactSectionProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydrationSafeReducedMotion();
   const blurReveal = (delay = 0) =>
     getBlurRevealMotion(Boolean(reducedMotion), delay);
   return (
@@ -44,7 +50,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
             href={`mailto:${contact.email}`}
           >
             {contact.email}
-            <span className="text-[1.2em]">↗</span>
+            <IconArrowUpRight aria-hidden="true" size={22} stroke={1.75} />
           </a>
           <span className="text-muted" aria-hidden="true">
             ·
@@ -72,7 +78,9 @@ export function ContactSection({ contact }: ContactSectionProps) {
           whileTap={subtleTap}
           className="font-mono text-[.75rem] font-medium uppercase tracking-[.05em]"
         >
-          GitHub <span className="ml-1.5">↗</span>
+          <span className="inline-flex items-center gap-1.5">
+            GitHub <IconBrandGithub aria-hidden="true" size={16} stroke={1.75} />
+          </span>
         </motion.a>
         <motion.a
           href="https://www.linkedin.com/in/guilherme-oliveira-96583023a/"
@@ -82,7 +90,9 @@ export function ContactSection({ contact }: ContactSectionProps) {
           whileTap={subtleTap}
           className="font-mono text-[.75rem] font-medium uppercase tracking-[.05em]"
         >
-          LinkedIn <span className="ml-1.5">↗</span>
+          <span className="inline-flex items-center gap-1.5">
+            LinkedIn <IconBrandLinkedin aria-hidden="true" size={16} stroke={1.75} />
+          </span>
         </motion.a>
       </motion.div>
     </section>

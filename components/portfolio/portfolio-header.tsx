@@ -1,8 +1,9 @@
 "use client";
 
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 
 import type { Locale, PortfolioContent } from "@/data/portfolio";
 import { ThemeToggle } from "./theme-toggle";
@@ -118,10 +119,18 @@ export function PortfolioHeader({ locale, navigation }: PortfolioHeaderProps) {
           </a>
         ))}
       </nav>
-      <div className="flex items-center gap-4 max-md:gap-2.5">
+      <div className="flex items-center gap-4 max-md:gap-3.5">
+        <Link
+          href={`/${otherLocale}`}
+          className="font-mono text-[.68rem] font-medium opacity-75 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4"
+          lang={otherLocale}
+        >
+          {otherLanguage}
+        </Link>
+        <ThemeToggle />
         <button
           ref={menuButtonRef}
-          className="hidden size-8 cursor-pointer place-content-center gap-[5px] rounded-full border border-rule bg-transparent text-inherit max-md:grid"
+          className="hidden size-8 cursor-pointer place-content-center gap-[5px] rounded-full border border-rule bg-transparent text-inherit max-md:grid max-md:size-9"
           type="button"
           aria-expanded={isMenuOpen}
           aria-controls="primary-navigation"
@@ -136,23 +145,12 @@ export function PortfolioHeader({ locale, navigation }: PortfolioHeaderProps) {
           }
           onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
         >
-          <span
-            className={`block h-px w-[15px] bg-current transition-transform ${isMenuOpen ? "translate-y-[3px] rotate-45" : ""}`}
-            aria-hidden="true"
-          />
-          <span
-            className={`block h-px w-[15px] bg-current transition-transform ${isMenuOpen ? "-translate-y-[3px] -rotate-45" : ""}`}
-            aria-hidden="true"
-          />
+          {isMenuOpen ? (
+            <IconX aria-hidden="true" size={18} stroke={1.75} className="max-md:size-5" />
+          ) : (
+            <IconMenu2 aria-hidden="true" size={18} stroke={1.75} className="max-md:size-5" />
+          )}
         </button>
-        <Link
-          href={`/${otherLocale}`}
-          className="font-mono text-[.68rem] font-medium opacity-75 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4"
-          lang={otherLocale}
-        >
-          {otherLanguage}
-        </Link>
-        <ThemeToggle />
       </div>
     </header>
   );

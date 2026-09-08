@@ -1,7 +1,7 @@
 "use client";
 
-import { type PropsWithChildren, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
+import { type PropsWithChildren, useRef, useState } from "react";
 
 type MagneticButtonProps = PropsWithChildren<{
   href: string;

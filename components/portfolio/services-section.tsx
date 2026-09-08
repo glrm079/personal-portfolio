@@ -1,16 +1,18 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { IconArrowDownRight } from "@tabler/icons-react";
 
 import type { PortfolioContent } from "@/data/portfolio";
 import { getRevealMotion } from "@/lib/animation";
+import { useHydrationSafeReducedMotion } from "./motion-provider";
 import { SectionHeading } from "./section-heading";
 import { TiltedSpotlightCard } from "./tilted-spotlight-card";
 
 type ServicesSectionProps = Pick<PortfolioContent, "services">;
 
 export function ServicesSection({ services }: ServicesSectionProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydrationSafeReducedMotion();
   const reveal = getRevealMotion(Boolean(reducedMotion));
   return (
     <section
@@ -41,9 +43,12 @@ export function ServicesSection({ services }: ServicesSectionProps) {
               <p className="text-[.88rem] leading-6 text-muted max-md:col-[2/4]">
                 {service.description}
               </p>
-              <b className="font-mono text-xl font-normal transition-transform group-hover:rotate-45">
-                ↘
-              </b>
+              <IconArrowDownRight
+                aria-hidden="true"
+                size={20}
+                stroke={1.75}
+                className="transition-transform group-hover:rotate-45"
+              />
             </motion.article>
           </TiltedSpotlightCard>
         ))}

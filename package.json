@@ -12,6 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.46.0",
     "@types/three": "^0.185.4",
     "motion": "^12.23.24",
     "next": "^16.0.0",

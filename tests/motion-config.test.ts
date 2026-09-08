@@ -1,10 +1,20 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from "vitest";
 
-import { getMotionConfigMode } from '@/lib/motion-config';
+import {
+  getHydrationSafeReducedMotion,
+  getMotionConfigMode,
+} from "@/lib/motion-config";
 
-describe('getMotionConfigMode', () => {
-  it('disables motion until client hydration has completed', () => {
-    expect(getMotionConfigMode(false)).toBe('always');
-    expect(getMotionConfigMode(true)).toBe('user');
+describe("getMotionConfigMode", () => {
+  it("keeps the server and initial client render motion-compatible", () => {
+    expect(getMotionConfigMode(false)).toBe("never");
+    expect(getMotionConfigMode(true)).toBe("user");
+  });
+});
+
+describe("getHydrationSafeReducedMotion", () => {
+  it("defers a user motion preference until after hydration", () => {
+    expect(getHydrationSafeReducedMotion(false, true)).toBe(false);
+    expect(getHydrationSafeReducedMotion(true, true)).toBe(true);
   });
 });

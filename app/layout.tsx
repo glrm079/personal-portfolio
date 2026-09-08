@@ -1,22 +1,46 @@
 import { ThemeProvider } from "@/components/portfolio/theme-provider";
+import { siteUrl } from "@/lib/portfolio-metadata";
+import { DM_Mono, Manrope } from "next/font/google";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "Guilherme Oliveira — Creative developer",
+    default: "Guilherme Oliveira — Full Stack Developer",
     template: "%s — Guilherme Oliveira",
   },
-  description: "Portfolio of Guilherme Oliveira, creative developer.",
-  metadataBase: new URL("http://exploreguilherme.space/"),
+  description: "Portfolio of Guilherme Oliveira, Full Stack Developer.",
+  metadataBase: new URL(siteUrl),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const requestHeaders = await headers();
+  const documentLanguage =
+    requestHeaders.get("x-portfolio-document-language") ?? "pt-BR";
+
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html
+      lang={documentLanguage}
+      className={`${manrope.variable} ${dmMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

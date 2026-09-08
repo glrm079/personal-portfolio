@@ -1,16 +1,17 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 import type { PortfolioContent } from "@/data/portfolio";
 import { getBlurRevealMotion } from "@/lib/animation";
+import { useHydrationSafeReducedMotion } from "./motion-provider";
 import { ProjectCard } from "./project-card";
 import { SectionHeading } from "./section-heading";
 
 type ProjectsSectionProps = Pick<PortfolioContent, "work" | "projects">;
 
 export function ProjectsSection({ work, projects }: ProjectsSectionProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydrationSafeReducedMotion();
   return (
     <section
       className="border-t border-rule py-[clamp(6rem,14vw,13rem)] [scroll-margin-top:80px] max-md:py-[6.5rem]"
@@ -30,7 +31,7 @@ export function ProjectsSection({ work, projects }: ProjectsSectionProps) {
       </div>
       <motion.div
         {...getBlurRevealMotion(Boolean(reducedMotion), 0.22)}
-        className="grid gap-px border border-rule bg-rule"
+        className="grid gap-px border border-rule/20 bg-rule/20"
       >
         {projects.map((project, index) => (
           <ProjectCard key={project.number} project={project} index={index} />

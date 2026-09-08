@@ -1,16 +1,17 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 import type { PortfolioContent } from "@/data/portfolio";
 import { getRevealMotion } from "@/lib/animation";
+import { useHydrationSafeReducedMotion } from "./motion-provider";
 import { SectionHeading } from "./section-heading";
 import { TiltedSpotlightCard } from "./tilted-spotlight-card";
 
 type ExperienceSectionProps = Pick<PortfolioContent, "experience">;
 
 export function ExperienceSection({ experience }: ExperienceSectionProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydrationSafeReducedMotion();
   const reveal = getRevealMotion(Boolean(reducedMotion));
   return (
     <section

@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 
 import { Portfolio } from "@/components/portfolio/portfolio";
 import { getPortfolioContent, type Locale } from "@/data/portfolio";
+import {
+  getPortfolioMetadata,
+  getPortfolioPersonJsonLd,
+} from "@/lib/portfolio-metadata";
 
 const locales: Locale[] = ["pt", "en"];
 
@@ -16,23 +20,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEnglish = locale === "en";
-  const title = isEnglish ? "Fullstack developer" : "Desenvolvedor Fullstack";
-  const description = isEnglish
-    ? "Selected work and digital experiences by Guilherme Oliveira."
-    : "Projetos e experiências digitais de Guilherme Oliveira.";
-
-  return {
-    title,
-    description,
-    alternates: { languages: { "pt-BR": "/pt", en: "/en" } },
-    openGraph: {
-      title: `Guilherme Oliveira — ${title}`,
-      description,
-      type: "website",
-      locale: isEnglish ? "en_US" : "pt_BR",
-    },
-  };
+  if (!locales.includes(locale as Locale)) notFound();
+  return getPortfolioMetadata(locale as Locale);
 }
 
 export default async function PortfolioPage({
@@ -45,9 +34,17 @@ export default async function PortfolioPage({
 
   const typedLocale = locale as Locale;
   return (
-    <Portfolio
-      locale={typedLocale}
-      content={getPortfolioContent(typedLocale)}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getPortfolioPersonJsonLd()),
+        }}
+      />
+      <Portfolio
+        locale={typedLocale}
+        content={getPortfolioContent(typedLocale)}
+      />
+    </>
   );
 }

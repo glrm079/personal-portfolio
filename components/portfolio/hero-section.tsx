@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { IconArrowDownRight, IconArrowUpRight } from "@tabler/icons-react";
 import {
   motion,
-  useReducedMotion,
   useScroll,
   useTransform,
 } from "motion/react";
@@ -11,12 +11,13 @@ import {
 import type { PortfolioContent } from "@/data/portfolio";
 import { getHeroDescriptionMotion } from "@/lib/animation";
 import { MagneticButton } from "./magnetic-button";
+import { useHydrationSafeReducedMotion } from "./motion-provider";
 import { SplitText } from "./split-text";
 
 type HeroSectionProps = Pick<PortfolioContent, "hero" | "name">;
 
 export function HeroSection({ hero, name }: HeroSectionProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydrationSafeReducedMotion();
   const { scrollYProgress } = useScroll();
   const heroArtY = useTransform(scrollYProgress, [0, 0.25], [0, -36]);
   const heroDescription = getHeroDescriptionMotion(Boolean(reducedMotion));
@@ -54,9 +55,12 @@ export function HeroSection({ hero, name }: HeroSectionProps) {
             reducedMotion={Boolean(reducedMotion)}
           >
             {hero.primaryAction}
-            <span className="text-base transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-              ↘
-            </span>
+            <IconArrowDownRight
+              aria-hidden="true"
+              size={17}
+              stroke={1.75}
+              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+            />
           </MagneticButton>
           <MagneticButton
             className="inline-flex min-h-12 items-center gap-11 border border-ink py-0 pr-4 pl-[1.15rem] font-mono text-[.67rem] font-medium uppercase tracking-[.07em] transition-colors hover:bg-ink hover:text-page"
@@ -64,14 +68,17 @@ export function HeroSection({ hero, name }: HeroSectionProps) {
             reducedMotion={Boolean(reducedMotion)}
           >
             {hero.secondaryAction}
-            <span className="text-base transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-              ↗
-            </span>
+            <IconArrowUpRight
+              aria-hidden="true"
+              size={17}
+              stroke={1.75}
+              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+            />
           </MagneticButton>
         </div>
       </motion.div>
       <motion.div
-        className="relative z-1 w-[min(31vw,410px)] justify-self-end max-md:w-[min(68vw,340px)]"
+        className="relative z-1 w-[min(31vw,410px)] justify-self-end max-md:w-[min(68vw,340px)] max-md:justify-self-center"
         initial={reducedMotion ? false : { opacity: 0, scale: 0.96 }}
         animate={reducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
         transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
@@ -79,10 +86,10 @@ export function HeroSection({ hero, name }: HeroSectionProps) {
       >
         <div className="relative aspect-[.84] overflow-hidden border border-ink bg-paper">
           <Image
-            src="/guilherme-oliveira-portrait-straightened.png"
+            src="/guilherme-oliveira-portrait.jpg"
             alt="Guilherme Oliveira"
-            width={1448}
-            height={1080}
+            width={965}
+            height={1448}
             priority
             sizes="(max-width: 760px) 68vw, min(31vw, 410px)"
             className="size-full object-cover object-[42%_28%] grayscale contrast-105"

@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useTheme } from "./theme-provider";
-import * as THREE from "three";
 import { getLiquidEtherSettings } from "@/lib/liquid-ether";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { useTheme } from "./theme-provider";
 
 const vertexShader = `
   varying vec2 vUv;

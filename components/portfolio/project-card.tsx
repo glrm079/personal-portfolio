@@ -1,9 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 import type { Project } from "@/data/portfolio";
 import { getRevealMotion, subtleHover } from "@/lib/animation";
+import { useHydrationSafeReducedMotion } from "./motion-provider";
 import { SpotlightCard } from "./spotlight-card";
 
 export function ProjectCard({
@@ -13,18 +15,12 @@ export function ProjectCard({
   project: Project;
   index: number;
 }) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydrationSafeReducedMotion();
   const reveal = getRevealMotion(Boolean(reducedMotion));
   const mark = index === 0 ? "A" : index === 1 ? "M" : "F";
-  const visualClass =
-    index === 0
-      ? "bg-transparent text-ink"
-      : index === 1
-        ? "bg-[repeating-radial-gradient(circle_at_50%_52%,var(--fg)_0_1px,var(--bg)_2px_17px)]"
-        : "bg-[conic-gradient(from_220deg,var(--fg),var(--bg),var(--fg),var(--bg),var(--fg))]";
   return (
     <SpotlightCard
-      className="backdrop-blur-[2px]"
+      className="bg-transparent backdrop-blur-[3px] backdrop-saturate-[1.1]"
       spotlightColor="rgba(127, 127, 127, 0.2)"
       disabled={Boolean(reducedMotion)}
       surface={false}
@@ -36,7 +32,7 @@ export function ProjectCard({
         className="relative z-2 grid min-h-[410px] grid-cols-[minmax(220px,.85fr)_minmax(0,1.15fr)] bg-transparent max-md:grid-cols-1"
       >
         <div
-          className={`relative flex overflow-hidden border-r border-rule p-5 font-mono text-[.62rem] font-medium max-md:min-h-[270px] max-md:border-r-0 max-md:border-b ${visualClass}`}
+          className="relative flex overflow-hidden border-r border-rule/20 bg-transparent p-5 font-mono text-[.62rem] font-medium max-md:min-h-[270px] max-md:border-r-0 max-md:border-b"
         >
           <span className="relative z-2">{project.number}</span>
           <motion.div
@@ -81,7 +77,12 @@ export function ProjectCard({
               href={project.href}
             >
               {project.actionLabel}
-              <span className="ml-2 text-base">↗</span>
+              <IconArrowUpRight
+                aria-hidden="true"
+                size={16}
+                stroke={1.75}
+                className="ml-2 inline-block align-text-bottom"
+              />
             </a>
           </div>
         </div>

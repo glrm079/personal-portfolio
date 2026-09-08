@@ -81,7 +81,7 @@ const portfolio: Record<Locale, PortfolioContent> = {
     about: {
       label: "01 — Perfil",
       title: "Código sólido, produtos que evoluem.",
-      body: "Sou Guilherme Oliveira, desenvolvedor Full Stack JavaScript formado em Análise e Desenvolvimento de Sistemas. Tenho experiência prática na criação de aplicações modernas de ponta a ponta: interfaces em React e Next.js, APIs REST, bancos de dados e deploy em nuvem. Atuo com TypeScript, Node.js, NestJS, PostgreSQL, DynamoDB e arquiteturas serverless na AWS, além de Google Cloud. Também valorizo testes automatizados, performance, SEO e manutenção de código em produtos que evoluem continuamente. Trabalho de forma proativa, colaborativa e orientada a resultado, do levantamento de requisitos à entrega.",
+      body: "Sou Guilherme Oliveira, desenvolvedor Full Stack JavaScript formado em Análise e Desenvolvimento de Sistemas. Tenho experiência prática na criação de aplicações modernas de ponta a ponta: interfaces em React e Next.js, APIs REST, bancos de dados e deploy em nuvem. Atuo com TypeScript, Node.js, NestJS, PostgreSQL, DynamoDB, arquiteturas serverless na AWS e infraestrutura como código com AWS CDK. Também valorizo testes automatizados, performance, SEO e manutenção de código em produtos que evoluem continuamente. Trabalho de forma proativa, colaborativa e orientada a resultado, do levantamento de requisitos à entrega.",
       metrics: [
         { value: "São Paulo, BR", label: "base" },
         { value: "Flexível", label: "presencial · híbrido · remoto" },
@@ -118,15 +118,15 @@ const portfolio: Record<Locale, PortfolioContent> = {
         },
         {
           number: "02",
-          title: "Backend & dados",
+          title: "Backend, dados & serverless",
           description:
-            "Node.js, Express, NestJS, APIs REST, Prisma, MySQL, MongoDB, PostgreSQL e DynamoDB.",
+            "Node.js, Express, NestJS, APIs REST, Prisma, MySQL, MongoDB, PostgreSQL, DynamoDB, AWS Serverless e AWS CDK.",
         },
         {
           number: "03",
           title: "Cloud & qualidade",
           description:
-            "AWS Serverless, Cognito, RDS, Google Cloud, Git, GitHub, GitLab, Cypress, Vitest e Jest.",
+            "AWS Serverless, AWS CDK, Cognito, RDS, DynamoDB, Git, GitHub, GitLab, Cypress, Vitest e Jest.",
         },
       ],
     },
@@ -139,14 +139,14 @@ const portfolio: Record<Locale, PortfolioContent> = {
           role: "Full Stack Developer",
           company: "Westpoint — Cookiepal · remoto",
           description:
-            "Suporte à plataforma usada em toda europa, desenvolvimento de features end-to-end e automação de processos. Atuação em Frontend com React, Next, TypeScript e Mantine, Backend serverless com infraestrutura em IAC e integrações para evoluir fluxos internos e a experiência do produto.",
+            "Suporte à plataforma usada em toda Europa, desenvolvimento de features end-to-end e automação de processos. Atuação em frontend com React, Next.js, TypeScript e Mantine; backend serverless com infraestrutura como código em AWS CDK e integrações para evoluir fluxos internos e a experiência do produto.",
         },
         {
           period: "Nov 2025 — Abr 2026",
           role: "Full Stack Developer",
           company: "Westpoint · Inglaterra · remoto",
           description:
-            "Desenvolvimento e manutenção de funcionalidades para uma plataforma usada na Europa. Frontend com React, Vite, TypeScript e Mantine; backend serverless tambem usando NestJS, Prisma, PostgreSQL RDS, DynamoDB e Cognito. Cobertura de qualidade com Cypress, Jest, em colaboração com o time para entregas dentro do prazo.",
+            "Desenvolvimento e manutenção de funcionalidades para uma plataforma usada na Europa. Frontend com React, Vite, TypeScript e Mantine; backend serverless também usando NestJS, Prisma, PostgreSQL RDS, DynamoDB e Cognito. Cobertura de qualidade com Cypress, Jest, em colaboração com o time para entregas dentro do prazo.",
         },
       ],
     },
@@ -182,7 +182,7 @@ const portfolio: Record<Locale, PortfolioContent> = {
     about: {
       label: "01 — Profile",
       title: "Solid code, products that evolve.",
-      body: "I am Guilherme Oliveira, a Full Stack JavaScript Developer with a degree in Systems Analysis and Development. I build modern end-to-end applications: React and Next.js interfaces, REST APIs, databases and cloud deployment. I work with TypeScript, Node.js, NestJS, PostgreSQL, DynamoDB and serverless AWS architectures, as well as Google Cloud. I value automated testing, performance, SEO and maintainable code in products that evolve continuously. I work proactively and collaboratively from requirements gathering through delivery.",
+      body: "I am Guilherme Oliveira, a Full Stack JavaScript Developer with a degree in Systems Analysis and Development. I build modern end-to-end applications: React and Next.js interfaces, REST APIs, databases and cloud deployment. I work with TypeScript, Node.js, NestJS, PostgreSQL, DynamoDB, serverless AWS architectures and infrastructure as code with AWS CDK. I value automated testing, performance, SEO and maintainable code in products that evolve continuously. I work proactively and collaboratively from requirements gathering through delivery.",
       metrics: [
         { value: "São Paulo, BR", label: "base" },
         { value: "Flexible", label: "on-site · hybrid · remote" },
@@ -218,15 +218,15 @@ const portfolio: Record<Locale, PortfolioContent> = {
         },
         {
           number: "02",
-          title: "Backend & data",
+          title: "Backend, data & serverless",
           description:
-            "Node.js, Express, NestJS, REST APIs, Prisma, MySQL, MongoDB, PostgreSQL and DynamoDB.",
+            "Node.js, Express, NestJS, REST APIs, Prisma, MySQL, MongoDB, PostgreSQL, DynamoDB, AWS Serverless and AWS CDK.",
         },
         {
           number: "03",
           title: "Cloud & quality",
           description:
-            "AWS Serverless, Cognito, RDS, Google Cloud, Git, GitHub, GitLab, Cypress, Vitest and Jest.",
+            "AWS Serverless, AWS CDK, Cognito, RDS, DynamoDB, Git, GitHub, GitLab, Cypress, Vitest and Jest.",
         },
       ],
     },
@@ -239,14 +239,14 @@ const portfolio: Record<Locale, PortfolioContent> = {
           role: "Full Stack Developer",
           company: "Westpoint — Cookiepal · remote",
           description:
-            "Platform support, end-to-end feature delivery and process automation. Working across frontend, backend and integrations to improve internal flows and product experience.",
+            "Support for a platform used across Europe, end-to-end feature development and process automation. Frontend work with React, Next.js, TypeScript and Mantine; serverless backend work with infrastructure as code in AWS CDK and integrations to evolve internal workflows and product experience.",
         },
         {
           period: "Nov 2025 — Apr 2026",
           role: "Full Stack Developer",
           company: "Westpoint · England · remote",
           description:
-            "Developed and maintained features for a platform used across Europe. Frontend with React, Vite, TypeScript and Mantine; serverless backend with NestJS, Prisma, PostgreSQL RDS, DynamoDB and Cognito. Quality coverage with Cypress, Vitest and Jest, collaborating with the team to meet deadlines.",
+            "Developed and maintained features for a platform used across Europe. Frontend with React, Vite, TypeScript and Mantine; serverless backend also using NestJS, Prisma, PostgreSQL RDS, DynamoDB and Cognito. Quality coverage with Cypress and Jest, collaborating with the team to deliver on time.",
         },
       ],
     },

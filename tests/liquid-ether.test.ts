@@ -1,19 +1,19 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from "vitest";
 
-import { getLiquidEtherSettings } from '@/lib/liquid-ether';
+import { getLiquidEtherSettings } from "@/lib/liquid-ether";
 
-describe('getLiquidEtherSettings', () => {
-  it('keeps mouse interaction enabled on every viewport size', () => {
+describe("getLiquidEtherSettings", () => {
+  it("keeps mouse interaction enabled on every viewport size", () => {
     expect(getLiquidEtherSettings(375)).toMatchObject({ interactive: true });
     expect(getLiquidEtherSettings(1440)).toMatchObject({ interactive: true });
   });
 
-  it('automatically lowers pixel density on narrow viewports', () => {
+  it("automatically lowers pixel density on narrow viewports", () => {
     expect(getLiquidEtherSettings(375)).toMatchObject({ maxPixelRatio: 1 });
     expect(getLiquidEtherSettings(1440)).toMatchObject({ maxPixelRatio: 1.5 });
   });
 
-  it('uses a broad, soft mouse influence instead of a concentrated spot', () => {
+  it("uses a broad, soft mouse influence instead of a concentrated spot", () => {
     expect(getLiquidEtherSettings(1440)).toMatchObject({
       cursorFalloff: 2.5,
       flowStrength: 0,
@@ -27,8 +27,8 @@ describe('getLiquidEtherSettings', () => {
       autoSpeed: 0.5,
       autoIntensity: 2.2,
       isBounce: false,
-      resolution: 0.5
+      resolution: 0.5,
     });
-    expect(getLiquidEtherSettings(1440)).not.toHaveProperty('colors');
+    expect(getLiquidEtherSettings(1440)).not.toHaveProperty("colors");
   });
 });
